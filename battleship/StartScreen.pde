@@ -57,6 +57,7 @@ void drawStartScreenModules(int fontSize, int margin)
 
   //StartButton
   drawStartButton(oneFourthWidth, oneFourthHeigt * 3 + oneFourthHeigt / 2, oneFourthWidth * 2, 50, "START GAME", fontSize);
+  checkMyButtons();
 
   fill(#FF0000);
 }
@@ -96,4 +97,12 @@ void drawPlayerAmountArrowSelectButtons(int x1, int y1, int x2, int y2, int x3, 
   //  //x += w;
   //}
   //drawArrowSelectButton(arrowSelectButton, PLAYER_AMOUNT, playerAmountIndex);
+}
+
+void checkMyButtons()
+{
+  printArray(startButton);
+  printArray(arrowSelectButton);
+  printArray(defenseSystemButtons);
+  printArray(fieldSizeButtons);
 }

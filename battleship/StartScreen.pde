@@ -56,6 +56,8 @@ void drawStartScreenModules(int fontSize, int margin)
   drawFieldSizeButtons(xFieldSizeButtons, yFieldSizeButtons, fieldSizeBtnWidth, fieldSizeBntHeight, fontSize);
 
   //StartButton
+  drawStartButton(oneFourthWidth, oneFourthHeigt * 3 + oneFourthHeigt / 2, oneFourthWidth * 2, 50, "START GAME", fontSize);
+
   fill(#FF0000);
 }
 
@@ -77,6 +79,12 @@ void drawFieldSizeButtons(int x, int y, int w, int h, int fontSize)
     drawButton(fieldSizeButtons[i], FIELD_SIZE_AMOUNT[i] + " x " + FIELD_SIZE_AMOUNT[i], fontSize);
     x += w;
   }
+}
+
+void drawStartButton(int x, int y, int w, int h, String text, int fontSize)
+{
+  startButton = makeButton(x, y, w, h);
+  drawButton(startButton, text, fontSize);
 }
 
 void drawPlayerAmountArrowSelectButtons(int x1, int y1, int x2, int y2, int x3, int y3)

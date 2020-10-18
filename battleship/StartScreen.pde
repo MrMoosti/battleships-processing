@@ -14,13 +14,12 @@ void showStartScreen()
 {
   clear();
   background(#FFFFFF);
-  
+
   drawStartScreenModules(18, 15);
 }
 
 void startScreenMousePressed()
 {
-  
 }
 
 void drawStartScreenModules(int fontSize, int margin)
@@ -31,11 +30,11 @@ void drawStartScreenModules(int fontSize, int margin)
   textSize(fontSize);
   textAlign(LEFT, CENTER);
   fill(#000000);
-  
+
   //Players
   text("PLAYER AMOUNT", margin, fontSize);
   //drawPlayerAmountArrowSelectButtons()
-  
+
   //Defense Systems
   text("DEFENSE SYSTEM AMOUNT", margin, oneFourthHeigt + fontSize);
   int xDefenseSystem = margin;
@@ -43,7 +42,9 @@ void drawStartScreenModules(int fontSize, int margin)
   int defenseSystemBtnWidth = ((width / 2) - margin) / defenseSystemButtons.length;
   int defenseSystemBtnHeight = oneFourthHeigt / 2;
   stroke(#00FF00);
-  
+  drawDefenseSystemButtons(xDefenseSystem, yDefenseSystem, defenseSystemBtnWidth, defenseSystemBtnHeight, fontSize);
+
+
   //Field size
   fill(#000000);
   textAlign(LEFT, CENTER);
@@ -52,10 +53,19 @@ void drawStartScreenModules(int fontSize, int margin)
   int yFieldSizeButtons = oneFourthHeigt * 2 + fontSize * 2;
   int fieldSizeBtnWidth = ((width / 2) - margin) / fieldSizeButtons.length;
   int fieldSizeBntHeight = oneFourthHeigt / 2;
-  
+
   //StartButton
   fill(#FF0000);
-  
+}
+
+void drawDefenseSystemButtons(int x, int y, int w, int h, int fontSize)
+{  
+  for (int i = 0; i < defenseSystemButtons.length; i++)
+  {
+    defenseSystemButtons[i] = makeButton(x, y, w, h);
+    drawButton(defenseSystemButtons[i], DEFENSE_SYSTEM_AMOUNT[i] + "", fontSize);
+    x += w;
+  }
 }
 
 void drawPlayerAmountArrowSelectButtons(int x1, int y1, int x2, int y2, int x3, int y3)
@@ -63,7 +73,7 @@ void drawPlayerAmountArrowSelectButtons(int x1, int y1, int x2, int y2, int x3, 
   //for(int i = 0; i < arrowSelectButton.length; i++)
   //{
   //  arrowSelectButton[i] = makeArrowSelectButton(x1, y1, x2, y2, x3, y3);
-    
+
   //  //x += w;
   //}
   //drawArrowSelectButton(arrowSelectButton, PLAYER_AMOUNT, playerAmountIndex);

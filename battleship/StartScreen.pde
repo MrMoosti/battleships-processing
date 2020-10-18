@@ -53,6 +53,7 @@ void drawStartScreenModules(int fontSize, int margin)
   int yFieldSizeButtons = oneFourthHeigt * 2 + fontSize * 2;
   int fieldSizeBtnWidth = ((width / 2) - margin) / fieldSizeButtons.length;
   int fieldSizeBntHeight = oneFourthHeigt / 2;
+  drawFieldSizeButtons(xFieldSizeButtons, yFieldSizeButtons, fieldSizeBtnWidth, fieldSizeBntHeight, fontSize);
 
   //StartButton
   fill(#FF0000);
@@ -64,6 +65,16 @@ void drawDefenseSystemButtons(int x, int y, int w, int h, int fontSize)
   {
     defenseSystemButtons[i] = makeButton(x, y, w, h);
     drawButton(defenseSystemButtons[i], DEFENSE_SYSTEM_AMOUNT[i] + "", fontSize);
+    x += w;
+  }
+}
+
+void drawFieldSizeButtons(int x, int y, int w, int h, int fontSize)
+{
+  for(int i = 0; i < fieldSizeButtons.length; i++)
+  {
+    fieldSizeButtons[i] = makeButton(x, y, w, h);
+    drawButton(fieldSizeButtons[i], FIELD_SIZE_AMOUNT[i] + " x " + FIELD_SIZE_AMOUNT[i], fontSize);
     x += w;
   }
 }
